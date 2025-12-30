@@ -20,7 +20,15 @@ const collegeData = {
     vision: "We focus on discipline, academic excellence, practical training, and preparing students for global competitiveness.",
     contact: "You can visit us on the Chennai–Bengaluru National Highway, Vellore. For specific numbers, please check our official contact page.",
     mira: "The MiRA Centre for Entrepreneurship promotes innovation and helps students turn ideas into reality.",
-    fallback: "This information is not available right now. Please contact the college office."
+    fees: "Our fee structure is affordable and adheres to government norms. For detailed fee breakdowns for each course, please visit the administrative office.",
+    hostel: "We provide separate, secure, and well-furnished hostels for boys and girls with hygienic food and 24/7 power backup.",
+    placements: "AMCET has a stellar placement record with top recruiters like TCS, Infosys, and Wipro. Our placement cell provides rigorous training from the first year.",
+    transport: "We operate a fleet of buses covering all major routes in and around Vellore, ensuring safe and timely transport for students and staff.",
+    library: "Our central library is stocked with thousands of books, journals, and digital resources to support your academic growth.",
+    sports: "We encourage holistic development with facilities for cricket, volleyball, basketball, and indoor games.",
+    cafeteria: "Our cafeteria serves healthy and delicious vegetarian and non-vegetarian food at reasonable prices.",
+    events: "AMCET hosts a variety of cultural and technical fests, including symposiums, workshops, and our annual day 'AmcetFest'.",
+    fallback: "I'm not sure about that specific detail yet. However, you can ask me about Courses, Admissions, Placements, Hostel, Fees, or Transport!"
 };
 
 // Toggle Chat
@@ -144,7 +152,7 @@ function scrollToBottom() {
 function getBotResponse(input) {
     const lowerInput = input.toLowerCase();
 
-    // Inten Recognition
+    // Intent Recognition
     if (lowerInput.includes('hello') || lowerInput.includes('hi') || lowerInput.includes('hey')) {
         return collegeData.greetings[1];
     }
@@ -154,7 +162,7 @@ function getBotResponse(input) {
     if (lowerInput.includes('admission') || lowerInput.includes('apply') || lowerInput.includes('join')) {
         return collegeData.admissions;
     }
-    if (lowerInput.includes('facility') || lowerInput.includes('lab') || lowerInput.includes('campus') || lowerInput.includes('library')) {
+    if (lowerInput.includes('facility') || lowerInput.includes('lab') || lowerInput.includes('infrastructure')) {
         return collegeData.facilities;
     }
     if (lowerInput.includes('location') || lowerInput.includes('where') || lowerInput.includes('address')) {
@@ -166,13 +174,38 @@ function getBotResponse(input) {
     if (lowerInput.includes('vision') || lowerInput.includes('mission') || lowerInput.includes('focus')) {
         return collegeData.vision;
     }
-    if (lowerInput.includes('contact') || lowerInput.includes('phone') || lowerInput.includes('email')) {
+    if (lowerInput.includes('contact') || lowerInput.includes('phone') || lowerInput.includes('email') || lowerInput.includes('reach')) {
         return collegeData.contact;
     }
-    if (lowerInput.includes('mira') || lowerInput.includes('entrepreneur')) {
+    if (lowerInput.includes('mira') || lowerInput.includes('entrepreneur') || lowerInput.includes('startup')) {
         return collegeData.mira;
     }
+    // New Topics
+    if (lowerInput.includes('fee') || lowerInput.includes('cost') || lowerInput.includes('price') || lowerInput.includes('payment')) {
+        return collegeData.fees;
+    }
+    if (lowerInput.includes('hostel') || lowerInput.includes('accommodation') || lowerInput.includes('stay') || lowerInput.includes('room')) {
+        return collegeData.hostel;
+    }
+    if (lowerInput.includes('placement') || lowerInput.includes('job') || lowerInput.includes('salary') || lowerInput.includes('recruit')) {
+        return collegeData.placements;
+    }
+    if (lowerInput.includes('bus') || lowerInput.includes('transport') || lowerInput.includes('van') || lowerInput.includes('travel')) {
+        return collegeData.transport;
+    }
+    if (lowerInput.includes('library') || lowerInput.includes('books') || lowerInput.includes('journal')) {
+        return collegeData.library;
+    }
+    if (lowerInput.includes('sport') || lowerInput.includes('game') || lowerInput.includes('play')) {
+        return collegeData.sports;
+    }
+    if (lowerInput.includes('cafeteria') || lowerInput.includes('food') || lowerInput.includes('canteen') || lowerInput.includes('mess')) {
+        return collegeData.cafeteria;
+    }
+    if (lowerInput.includes('event') || lowerInput.includes('fest') || lowerInput.includes('function')) {
+        return collegeData.events;
+    }
 
-    // Default Fallback
-    return collegeData.fallback;
+    // Smart Fallback - acknowledges the input but guides them
+    return `I see you're interested in that. ${collegeData.fallback}`;
 }
