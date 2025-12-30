@@ -1,0 +1,4 @@
+antigravity-ai
+gradio
+transformers
+torch
